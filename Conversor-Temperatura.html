@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperaturas</title>
+</head>
+<body>
+    <h1>Conversor de Temperaturas</h1>
+    <button onclick="conv()">Converter</button>
+    <section id="temp">Clique no botão acima para iniciar.</section>
+    <section id="res"></section>
+    <script>
+        function conv(){
+        let Cel = Number(window.prompt("Digite uma temperatura em °C (Celsius)"))
+
+        let Kel = Number(Cel + 273.15).toFixed(2)
+        let fah = Number(9 * Cel + 160)/5
+
+        let temp = window.document.getElementById("temp")
+        temp.innerHTML = `<h1>A temperatura de ${Cel}°C, corresponde a...</h1>`
+        
+        let res = window.document.getElementById("res")
+        res.innerHTML = `<p>${Kel}°K (Kelvin)</p>
+        <p>${fah}°F (Fahrenheit)</p>`
+    }
+    </script>
+</body>
+</html>

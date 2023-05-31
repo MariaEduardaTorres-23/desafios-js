@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço Mudou</title>
+</head>
+
+<body>
+    <h1> Preço Mudou</h1>
+    <button onclick="calc()">Verificar</button>
+    <section id="Analisar">
+        <p>Clique no botão acima para analisar a mudança de preço.</p>
+    </section>
+    <section id="resultado"></section>
+    <script>
+        function calc() {
+            let prod_ant = window.prompt("Qual era o preço anterior do produto?")
+            let prod_at = window.prompt("Qual é o preço atual do produto?")
+
+            let diferenca = prod_at - prod_ant
+            let vari_porc = (diferenca/prod_ant) * 100
+            let text1
+            let text2
+            let text3
+            let res = window.document.getElementById("resultado")
+
+            if (prod_ant == prod_at) {
+                text1 = "o mesmo preço"
+                res.innerHTML = `<p>O produto custava R$ ${prod_ant} e agora custa R$ ${prod_at}.</p>
+        <p>Hoje o produto está ${text1}.</p>
+        <p>O preço se manteve o  mesmo em relação ao preço anterior.</p>
+        <p>Uma variação de 0%.</p>`
+            } else if (prod_ant < prod_at) {
+                text2 = "mais caro"
+                res.innerHTML = `<p>O produto custava R$ ${prod_ant} e agora custa R$ ${prod_at}.</p>
+        <p>Hoje o produto está ${text2}.</p>
+        <p>O preço subiu R$ ${diferenca} em relação ao preço anterior.</p>
+        <p>Uma variação de ${vari_porc}% pra cima.</p>`
+            } else if(prod_ant > prod_at)
+            {
+                text3 = "mais barato."
+                res.innerHTML = `<p>O produto custava R$ ${prod_ant} e agora custa R$ ${prod_at}.</p>
+        <p>Hoje o produto está ${text3}</p>
+        <p>O preço baixou R$ ${diferenca} em relação ao preço anterior.</p>
+        <p>Uma variação de ${vari_porc}% pra baixo</p>`
+            }
+        
+            let analisar = window.document.getElementById("Analisar")
+            analisar.innerHTML = `<h1>Analisando os valores informados</h1>`
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do Aluno</title>
+</head>
+
+<body>
+    <h1>Situação do Aluno</h1>
+    <button onclick="calc()">Entrar com as notas</button>
+    <section id="Analisar">
+        <p>Clique no botão acima para informar as notas do aluno.</p>
+    </section>
+    <section id="frase"></section>
+    <script>
+        function calc() {
+            let nome = window.prompt("Qual é o nome do aluno?")
+            let nota1 = Number(window.prompt(`Primeira nota de ${nome}:`))
+            let nota2 = Number(window.prompt(`Segunda nota de ${nome}:`))
+
+            let resultado = ""
+            let analisar = window.document.getElementById("Analisar")
+            let frase = window.document.getElementById("frase")
+            let media = (nota1 + nota2) / 2
+            if (media < 3.0) {
+                resultado = "REPROVADO"
+                frase.innerHTML = `<p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${media}</strong></p><p>Com média abaixo de 3,0, o aluno está ${resultado}</p>`
+            } else if (media > 3.0 && media < 6.0) {
+                resultado = "RECUPERAÇÃO"
+                frase.innerHTML = `<p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${media}</strong></p><p>Com média entre 3,0 e 6,0, o aluno está ${resultado}</p>`
+            } else if (media > 6.0) {
+                resultado = "APROVADO"
+                frase.innerHTML = `<p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${media}</strong></p><p>Com média acima de 6,0, o aluno está ${resultado}</p>`
+            }
+            analisar.innerHTML = `<h1>Analisando a situação de ${nome}</h1>`
+        }
+    </script>
+</body>
+
+</html>

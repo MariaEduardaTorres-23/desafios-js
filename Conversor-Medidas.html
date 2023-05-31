@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Medidas</title>
+</head>
+<body>
+    <h1>Conversor de medidas</h1>
+    <button onclick="conv()">Converter</button>
+    <section id="conversao">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+    <section id="tabela"></section>
+    <script>
+        function conv(){
+        let m = window.prompt("Digite uma distância em metros (m)")
+        let km = Number(m / 1000)
+        let hm = Number(m / 100)
+        let dam = Number(m / 10)
+        let dm = Number(m * 10)
+        let cm = Number(m * 100)
+        let mm = Number(m * 1000)
+
+        tabela.innerHTML = `<p>${km} quilômetros (Km)</p>
+        <p>${hm} hectômetros (Hm)</p>
+        <p>${dam} decâmetros (Dam)</p>
+        <p>${dm} decímetros (Dm)</p>
+        <p>${cm} centímetros (Cm)</p>
+        <p>${mm} milímetros (Mm)</p>`
+        
+        let con = window.document.getElementById("conversao")
+        con.innerHTML = `<h1>A distância ${m} metros, corresponde a...</h1>`
+        }
+    </script>
+</body>
+</html>

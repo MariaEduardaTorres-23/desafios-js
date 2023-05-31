@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste</title>
+</head>
+<body>
+    <h1>Reajuste Salarial</h1>
+    <button onclick="rej()">Reajustar Salário</button>
+    <section id="frase">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+    <section id="resultado"></section>
+    <script>
+        function rej() {
+        let nome = window.prompt("Qual é o nome do funcionário?")
+        let sal = Number(window.prompt(`Qual é o salário de ${nome}?`))
+        let pct = Number(window.prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`))
+        let reaj = ((sal*pct)/100).toFixed(2)
+        let sal_reaj = (sal*(1+pct/100)).toFixed(2)
+
+        let fra = window.document.getElementById("frase")
+        let res = document.getElementById("resultado")
+
+        fra.innerHTML = `<h1>${nome} recebeu um aumento salarial!</h1>`
+        res.innerHTML = `<p>O salário atual era R$ ${sal}.</p>
+        <p>Com um aumento de ${pct}%, o salário vai aumentar R$ ${reaj} no próximo mês.</p>
+        <p>E a partir dai, ${nome} vai passar a ganhar R$ ${sal_reaj}.</p>`
+    
+    }
+    </script>
+</body>
+</html>
